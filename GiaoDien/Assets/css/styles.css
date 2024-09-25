@@ -1,0 +1,276 @@
+/* Styling for the header */
+/* General header styling */
+.bg-primary {
+    background-color: #79c5f1 !important; /* Màu nền #fafafa */
+}
+
+.text-white {
+    color: #212529 !important; /* Màu chữ #212529 */
+}
+
+.p-4 {
+    padding: 1.5rem !important; /* Padding đều xung quanh */
+}
+
+/* logo css*/
+.logo {
+    width: 100px; /* Điều chỉnh kích thước chiều rộng logo */
+    height: auto; /* Đảm bảo logo giữ nguyên tỷ lệ */
+}
+
+@media (max-width: 768px) {
+    .logo {
+        width: 70px; /* Giảm kích thước logo trên màn hình nhỏ */
+    }
+}
+
+
+
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.d-flex {
+    display: flex !important; /* Sử dụng flexbox */
+}
+
+.justify-content-between {
+    justify-content: space-between !important; /* Phân bố đều hai đầu */
+}
+
+.align-items-center {
+    align-items: center !important; /* Căn giữa dọc */
+}
+
+h1.mb-0 {
+    margin-bottom: 0 !important; /* Xóa margin dưới của h1 */
+    font-size: 2rem; /* Kích thước font lớn */
+}
+
+.btn-light {
+    background-color: #f8f9fa !important; /* Màu nút sáng */
+    color: #000 !important; /* Màu chữ đen */
+}
+
+.btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: 0.3rem;
+}
+
+
+/* Button create css*/
+.button {
+    height: 50px;
+    width: 160px;
+    position: relative;
+    background-color: transparent;
+    cursor: pointer;
+    border: 2px solid #252525;
+    overflow: hidden;
+    border-radius: 30px;
+    color: #333;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .btn-txt {
+    z-index: 1;
+    font-weight: 800;
+    letter-spacing: 4px;
+  }
+  
+  .type1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 0.5s ease-in-out;
+    background-color: #333;
+    border-radius: 30px;
+    visibility: hidden;
+    height: 10px;
+    width: 10px;
+    z-index: -1;
+  }
+  
+  .button:hover {
+    box-shadow: 1px 1px 200px #252525;
+    color: #fff;
+    border: none;
+  }
+  
+  .type1:hover::after {
+    visibility: visible;
+    transform: scale(100) translateX(2px);
+  }
+  
+
+/* Add shadow and border to navbar */
+/* Nền và đổ bóng cho navbar */
+nav.navbar {
+    background-color: #f8f9fa; /* Màu nền sáng */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+    border-bottom: 2px solid #ddd; /* Đường viền dưới nhẹ nhàng */
+}
+
+/* Tùy chỉnh cho các liên kết */
+nav.navbar .nav-link {
+    font-size: 1.15rem; /* Cỡ chữ to hơn một chút */
+    color: #040d16; /* Màu xanh cho các liên kết */
+    padding: 0.75rem 1rem; /* Tăng khoảng cách giữa các liên kết */
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Hiệu ứng chuyển màu */
+    font-weight: 400;
+    position: relative; /* Để sử dụng cho hiệu ứng underline */
+}
+
+/* Hiệu ứng hover */
+nav.navbar .nav-link:hover {
+    box-shadow: 1px 1px 200px #838383;
+}
+
+/* Liên kết đang active */
+nav.navbar .nav-link.active {
+    color: orange; /* Đổi màu chữ thành màu cam */
+    background-color: transparent; /* Không có nền */
+}
+
+/* Tạo hiệu ứng underline cho liên kết active */
+nav.navbar .nav-link.active::after {
+    content: ""; /* Tạo một pseudo-element */
+    display: block; /* Đặt nó là block để hiển thị dưới chữ */
+    width: 100%; /* Chiều rộng bằng chiều rộng của liên kết */
+    height: 2px; /* Chiều cao của gạch chân */
+    background-color: orange; /* Màu của gạch chân */
+    position: absolute; /* Đặt vị trí tuyệt đối */
+    left: 0; /* Đặt từ bên trái */
+    bottom: 0; /* Đặt tại đáy của liên kết */
+}
+
+/* Điều chỉnh cho navbar-toggler trên thiết bị di động */
+.navbar-toggler {
+    border-color: #007bff; /* Màu cho nút toggle */
+}
+
+/* Hiển thị biểu tượng toggle màu xanh */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%280, 123, 255, 1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+
+/* container section content */
+/* Căn giữa và tạo khoảng trống cho nội dung */
+.container {
+    max-width: 1500px; /* Giới hạn kích thước nội dung để vừa với màn hình */
+    margin: 0 auto; /* Căn giữa nội dung */
+    padding: 20px; /* Tạo khoảng trống bên trong */
+}
+
+/* Điều chỉnh khoảng cách cho các phần nội dung */
+.content-section {
+    margin-bottom: 2rem; /* Tạo khoảng cách giữa các phần */
+    padding: 15px;
+    border-radius: 8px; /* Bo tròn góc phần nội dung */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng để nổi bật */
+    background-color: #ffffff; /* Nền màu trắng để tách biệt với nền */
+}
+
+/* Điều chỉnh thanh tìm kiếm để nó phù hợp với bố cục */
+.input-group {
+    max-width: 700px;
+    margin: 0 auto 30px; /* Căn giữa thanh tìm kiếm */
+}
+
+/* Tùy chỉnh các mục trong list */
+.list-group-item {
+    border-radius: 8px; /* Làm tròn góc các mục */
+    padding: 10px 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* Đổ bóng nhẹ cho mỗi mục */
+}
+
+/* Hiệu ứng hover cho các mục */
+.list-group-item:hover {
+    background-color: #f1f1f1; /* Thay đổi màu nền khi hover */
+    transform: scale(1.02); /* Tạo hiệu ứng phóng to nhẹ */
+    transition: all 0.2s ease-in-out;
+}
+
+/* hieu ung xuat hien */
+.modal-dialog {
+    z-index: 1050; /* Đảm bảo modal nằm trên các phần tử khác */
+}
+
+.modal-content {
+    border-radius: 8px; /* Thêm góc bo cho modal */
+}
+
+/* Tùy chỉnh backdrop để không ảnh hưởng đến độ hiển thị */
+.modal-backdrop.show {
+    opacity: 0.5; /* Tùy chỉnh độ mờ cho backdrop */
+}
+
+/* Đảm bảo thân modal có padding hợp lý */
+.modal-body {
+    padding: 20px; /* Thêm padding cho thân modal */
+}
+
+/* Tùy chỉnh CSS khác nếu cần */
+
+
+
+/* search bar css */
+/* Style cho input group */
+.input-group {
+    max-width: 900px; /* Đặt chiều rộng tối đa */
+}
+
+/* Style cho input text */
+#globalSearch {
+    border: 2px solid #007bff; /* Viền màu xanh */
+    border-radius: 5px 0 0 5px; /* Bo góc bên trái */
+    padding: 10px; /* Khoảng cách bên trong */
+    font-size: 16px; /* Kích thước chữ */
+    transition: border-color 0.3s; /* Hiệu ứng chuyển tiếp cho viền */
+}
+
+/* Hiệu ứng khi hover hoặc focus vào input */
+#globalSearch:focus {
+    outline: none; /* Xóa đường viền mặc định */
+    border-color: #0056b3; /* Đổi màu viền khi focus */
+}
+
+/* Style cho nút tìm kiếm */
+#searchButton {
+    background-color: #007bff; /* Nền màu xanh */
+    color: white; /* Màu chữ trắng */
+    border: 2px solid #007bff; /* Viền màu xanh */
+    border-radius: 0 5px 5px 0; /* Bo góc bên phải */
+    padding: 10px 15px; /* Khoảng cách bên trong */
+    font-size: 16px; /* Kích thước chữ */
+    transition: background-color 0.3s, border-color 0.3s; /* Hiệu ứng chuyển tiếp cho nền và viền */
+}
+
+/* Hiệu ứng khi hover vào nút tìm kiếm */
+#searchButton:hover {
+    background-color: #0056b3; /* Đổi màu nền khi hover */
+    border-color: #0056b3; /* Đổi màu viền khi hover */
+    cursor: pointer; /* Đổi con trỏ chuột khi hover */
+}
+
+
+
+
+
+/* General Body Styles */
+body {
+    font-family: 'Gowun Batang', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container-fluid {
+    max-width: 1600px;
+}
