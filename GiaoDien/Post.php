@@ -20,7 +20,8 @@
         <div class="container-fluid d-flex justify-content-between align-items-center">
             <!-- Logo và tiêu đề nằm chung trong một thẻ div -->
             <div class="d-flex align-items-center">
-                <img src="./Assets/img-logo/Logo-DH-Phenikaa-V-Bl.webp" alt="Logo" class="logo me-2"> <!-- Thêm class logo và margin -->
+                <a href="../home_admin.php"><img src="./Assets/img-logo/Logo-DH-Phenikaa-V-Bl.webp" alt="Logo"
+                        class="logo me-2"></a> <!-- Thêm class logo và margin -->
                 <h1 class="mb-0">Quản lý Bài Đăng</h1>
             </div>
             <button class="button type1">
@@ -28,7 +29,7 @@
             </button>
         </div>
     </header>
-    
+
 
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
@@ -53,7 +54,7 @@
                 </ul>
             </div>
 
-           
+
         </div>
     </nav>
 
@@ -67,33 +68,42 @@
         </div>
 
         <!-- Section 1: Quy Chế - Quy Định -->
-    <div id="section1" class="content-section mb-4" data-content="quy chế quy định">
-        <h2 class="mb-4">Quy Chế - Quy Định</h2>
+        <div id="section1" class="content-section mb-4" data-content="quy chế quy định">
+            <h2 class="mb-4">Quy Chế - Quy Định</h2>
 
-        <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Cách 1: Luôn Đặt Mục Tiêu
-                <div>
-                    <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="setEditContent('Cách 1: Luôn Đặt Mục Tiêu')"><i class="fa-solid fa-screwdriver-wrench"></i></button>
-                    <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 1: Luôn Đặt Mục Tiêu" onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
-                </div>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Cách 2: Tham Gia Học Tập Liên Tục
-                <div>
-                    <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="setEditContent('Cách 2: Tham Gia Học Tập Liên Tục')"><i class="fa-solid fa-screwdriver-wrench"></i></button>
-                    <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 2: Tham Gia Học Tập Liên Tục" onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
-                </div>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Cách 3: Xây Dựng Mối Quan Hệ
-                <div>
-                    <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="setEditContent('Cách 3: Xây Dựng Mối Quan Hệ')"><i class="fa-solid fa-screwdriver-wrench"></i></button>
-                    <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 3: Xây Dựng Mối Quan Hệ" onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
-                </div>
-            </li>
-        </ul>
-    </div>
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Cách 1: Luôn Đặt Mục Tiêu
+                    <div>
+                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal"
+                            data-bs-target="#editModal" onclick="setEditContent('Cách 1: Luôn Đặt Mục Tiêu')"><i
+                                class="fa-solid fa-screwdriver-wrench"></i></button>
+                        <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 1: Luôn Đặt Mục Tiêu"
+                            onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Cách 2: Tham Gia Học Tập Liên Tục
+                    <div>
+                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal"
+                            data-bs-target="#editModal" onclick="setEditContent('Cách 2: Tham Gia Học Tập Liên Tục')"><i
+                                class="fa-solid fa-screwdriver-wrench"></i></button>
+                        <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 2: Tham Gia Học Tập Liên Tục"
+                            onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Cách 3: Xây Dựng Mối Quan Hệ
+                    <div>
+                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal"
+                            data-bs-target="#editModal" onclick="setEditContent('Cách 3: Xây Dựng Mối Quan Hệ')"><i
+                                class="fa-solid fa-screwdriver-wrench"></i></button>
+                        <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 3: Xây Dựng Mối Quan Hệ"
+                            onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
         <!-- Section 2: Phòng Chào Sinh Viên -->
         <div id="section2" class="content-section mb-4" data-content="phòng chào sinh viên" style="display: none;">
@@ -102,22 +112,31 @@
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Cách 1: Luôn Đặt Mục Tiêu
                     <div>
-                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="setEditContent('Cách 1: Luôn Đặt Mục Tiêu')"><i class="fa-solid fa-screwdriver-wrench"></i></button>
-                        <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 1: Luôn Đặt Mục Tiêu" onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
+                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal"
+                            data-bs-target="#editModal" onclick="setEditContent('Cách 1: Luôn Đặt Mục Tiêu')"><i
+                                class="fa-solid fa-screwdriver-wrench"></i></button>
+                        <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 1: Luôn Đặt Mục Tiêu"
+                            onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Cách 2: Tham Gia Học Tập Liên Tục
                     <div>
-                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="setEditContent('Cách 2: Tham Gia Học Tập Liên Tục')"><i class="fa-solid fa-screwdriver-wrench"></i></button>
-                        <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 2: Tham Gia Học Tập Liên Tục" onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
+                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal"
+                            data-bs-target="#editModal" onclick="setEditContent('Cách 2: Tham Gia Học Tập Liên Tục')"><i
+                                class="fa-solid fa-screwdriver-wrench"></i></button>
+                        <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 2: Tham Gia Học Tập Liên Tục"
+                            onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Cách 3: Xây Dựng Mối Quan Hệ
                     <div>
-                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="setEditContent('Cách 3: Xây Dựng Mối Quan Hệ')"><i class="fa-solid fa-screwdriver-wrench"></i></button>
-                        <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 3: Xây Dựng Mối Quan Hệ" onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
+                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal"
+                            data-bs-target="#editModal" onclick="setEditContent('Cách 3: Xây Dựng Mối Quan Hệ')"><i
+                                class="fa-solid fa-screwdriver-wrench"></i></button>
+                        <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 3: Xây Dựng Mối Quan Hệ"
+                            onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </li>
             </ul>
@@ -131,28 +150,37 @@
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Cách 1: Luôn Đặt Mục Tiêu
                     <div>
-                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="setEditContent('Cách 1: Luôn Đặt Mục Tiêu')"><i class="fa-solid fa-screwdriver-wrench"></i></button>
-                        <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 1: Luôn Đặt Mục Tiêu" onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
+                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal"
+                            data-bs-target="#editModal" onclick="setEditContent('Cách 1: Luôn Đặt Mục Tiêu')"><i
+                                class="fa-solid fa-screwdriver-wrench"></i></button>
+                        <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 1: Luôn Đặt Mục Tiêu"
+                            onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Cách 2: Tham Gia Học Tập Liên Tục
                     <div>
-                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="setEditContent('Cách 2: Tham Gia Học Tập Liên Tục')"><i class="fa-solid fa-screwdriver-wrench"></i></button>
-                        <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 2: Tham Gia Học Tập Liên Tục" onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
+                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal"
+                            data-bs-target="#editModal" onclick="setEditContent('Cách 2: Tham Gia Học Tập Liên Tục')"><i
+                                class="fa-solid fa-screwdriver-wrench"></i></button>
+                        <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 2: Tham Gia Học Tập Liên Tục"
+                            onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Cách 3: Xây Dựng Mối Quan Hệ
                     <div>
-                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="setEditContent('Cách 3: Xây Dựng Mối Quan Hệ')"><i class="fa-solid fa-screwdriver-wrench"></i></button>
-                        <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 3: Xây Dựng Mối Quan Hệ" onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
+                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal"
+                            data-bs-target="#editModal" onclick="setEditContent('Cách 3: Xây Dựng Mối Quan Hệ')"><i
+                                class="fa-solid fa-screwdriver-wrench"></i></button>
+                        <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 3: Xây Dựng Mối Quan Hệ"
+                            onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </li>
             </ul>
         </div>
 
-      
+
     </div>
 
     <!-- Edit Modal -->
@@ -185,24 +213,24 @@
         </div>
     </div>
 
-<!-- Confirm Delete Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered"> <!-- Giữ lớp này để căn giữa theo chiều dọc -->
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="deleteModalLabel">Xác Nhận Xóa</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Bạn có chắc chắn muốn xóa nội dung này không?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy Bỏ</button>
-                <button type="button" class="btn btn-danger" id="confirmDelete">Xóa</button>
+    <!-- Confirm Delete Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered"> <!-- Giữ lớp này để căn giữa theo chiều dọc -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Xác Nhận Xóa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Bạn có chắc chắn muốn xóa nội dung này không?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy Bỏ</button>
+                    <button type="button" class="btn btn-danger" id="confirmDelete">Xóa</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
     <script src="./index.js"></script>

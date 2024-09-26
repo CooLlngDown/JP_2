@@ -33,7 +33,7 @@ body {
     flex: 1; /* Flex to center the menu links */
     display: flex;
     justify-content: center; /* Center the menu links */
-    gap: 30px; /* Increase the gap between the menu links */
+    gap: 1px; /* Increase the gap between the menu links */
 }
 
 .navbar .menu-links a {
@@ -41,6 +41,7 @@ body {
     text-decoration: none;
     font-size: 18px;
     padding: 10px 15px;
+    width: 150px;
 }
 
 .navbar .menu-links a:hover {
