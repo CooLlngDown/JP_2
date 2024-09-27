@@ -48,11 +48,11 @@
 <body>
     <nav class="navbar">
         <div class="navbar-left">
-            <img src="/images/OIP.jfif" alt="Logo" class="logo">
+            <img src="../images/OIP.jfif" alt="Logo" class="logo">
         </div>
         <div class="navbar-center">
             <ul class="nav-links">
-                <li><a href="/home_user.php">Trang chủ</a></li>
+                <li><a href="../home_user.php">Trang chủ</a></li>
                 <li><a href="sotay.php">Mục lục</a></li>
             </ul>
         </div>
