@@ -26,9 +26,18 @@
         <!-- Search box -->
         <div class="search-box">
             <input type="text" placeholder="Tìm kiếm...">
-            <div class="user-icon">👤</div>
+            <div class="user-icon" id="userIcon">👤</div>
+            <!-- User info box -->
+            <div class="user-info-box" id="userInfoBox" style="display: none;">
+                <p>Xin chào, <strong>A</strong></p>
+                <div>
+                    <a href="#" style="color: black; text-decoration: none" id="userInfoLink">Thông tin cá nhân</a>
+                </div>
+                <div>
+                    <a href="#" style="color: black; text-decoration: none;">Đăng xuất</a>
+                </div>
+            </div>
         </div>
-
     </div>
 
     <!-- Main content -->
@@ -59,6 +68,20 @@
                 <p>Tôn trọng - Sáng tạo - Phản biện</p>
             </div>
         </div>
+    </div>
+    
+    <div class="overlay" id="overlay"></div>
+    <!-- User Info Form -->
+    <div class="user-info-form" id="userInfoForm">
+        <h2>Thông tin cá nhân</h2>
+        <form id="infoForm">
+            <label for="name">Tên:</label><br>
+            <input type="text" id="name" name="name" value="A"><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" value="example@example.com"><br><br>
+            <button type="submit">Lưu thay đổi</button>
+            <button type="button" id="closeForm">Đóng</button>
+        </form>
     </div>
 
     <!-- Chat Button -->
