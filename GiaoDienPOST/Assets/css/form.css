@@ -1,0 +1,71 @@
+/* Chỉ áp dụng flexbox cho phần div chứa form */
+.container-form {
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    height: 100; /* Chiều cao toàn màn hình */
+    background-color: #f4f4f4; /* Nền nhạt */
+}
+
+.form-container {
+    width: 100%; /* Chiều rộng tối đa */
+    max-width: 900px; /* Chiều rộng tối đa của form */
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px; /* Bo tròn góc cạnh */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Bóng đổ nhẹ */
+    border: 1px solid #ccc;
+}
+
+form label {
+    font-weight: bold; /* In đậm chữ nhãn */
+    margin-top: 15px; /* Khoảng cách giữa các nhãn */
+}
+
+form input[type="text"], form textarea, form select, form input[type="file"] {
+    width: 100%;
+    padding: 12px; /* Padding tăng kích thước */
+    margin-top: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box; /* Bảo đảm padding không ảnh hưởng chiều rộng */
+}
+
+form textarea {
+    resize: none; /* Tắt khả năng thay đổi kích thước textarea */
+}
+
+.button {
+    background-color: #007bff; /* Màu xanh dương đậm (Bootstrap primary) */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.button:hover {
+    background-color: #0056b3; /* Màu xanh dương đậm hơn khi hover */
+}
+
+header {
+    background-color: #343a40; /* Màu nền đen nhạt */
+    padding: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Bóng đổ nhẹ */
+}
+
+header h1 {
+    color: white;
+    margin: 0;
+}
+
+header img.logo {
+    height: 60px; /* Chiều cao của logo */
+    margin-right: 10px;
+}
+

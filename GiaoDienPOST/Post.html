@@ -23,7 +23,7 @@
                 <img src="./Assets/img-logo/Logo-DH-Phenikaa-V-Bl.webp" alt="Logo" class="logo me-2"> <!-- Thêm class logo và margin -->
                 <h1 class="mb-0">Quản lý Bài Đăng</h1>
             </div>
-            <button class="button type1">
+            <button class="button type1" onclick="window.location.href='FormPost.html';">
                 <span class="btn-txt">Tạo Mới</span>
             </button>
         </div>
@@ -69,29 +69,151 @@
         <!-- Section 1: Quy Chế - Quy Định -->
     <div id="section1" class="content-section mb-4" data-content="quy chế quy định">
         <h2 class="mb-4">Quy Chế - Quy Định</h2>
+    
 
         <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Cách 1: Luôn Đặt Mục Tiêu
+            <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=hoat-dong-dao-tao-tai-truong-dai-hoc-phenikaa'">
+                1. Hoạt động đào tạo tại trường đại học Phenikaa
                 <div>
-                    <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="setEditContent('Cách 1: Luôn Đặt Mục Tiêu')"><i class="fa-solid fa-screwdriver-wrench"></i></button>
-                    <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 1: Luôn Đặt Mục Tiêu" onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
+                    <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Hoạt động đào tạo tại trường đại học Phenikaa')">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" data-item-name="Hoạt động đào tạo tại trường đại học Phenikaa" onclick="event.stopPropagation(); openDeleteModal(this)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
                 </div>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Cách 2: Tham Gia Học Tập Liên Tục
+            </li> 
+            
+            <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=hoat-dong-cong-tac-sinh-vien'">
+                2. Hoạt động công tác sinh viên
                 <div>
-                    <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="setEditContent('Cách 2: Tham Gia Học Tập Liên Tục')"><i class="fa-solid fa-screwdriver-wrench"></i></button>
-                    <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 2: Tham Gia Học Tập Liên Tục" onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
+                    <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Hoạt động công tác sinh viên')">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" data-item-name="Hoạt động công tác sinh viên" onclick="event.stopPropagation(); openDeleteModal(this)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
                 </div>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Cách 3: Xây Dựng Mối Quan Hệ
+            </li> 
+            
+            <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=hoat-dong-trung-tam-tu-van-ho-tro'">
+                3. Hoạt động Trung tâm, Tư vấn, Hỗ trợ và Đổi mới sáng tạo sinh viên
                 <div>
-                    <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="setEditContent('Cách 3: Xây Dựng Mối Quan Hệ')"><i class="fa-solid fa-screwdriver-wrench"></i></button>
-                    <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 3: Xây Dựng Mối Quan Hệ" onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
+                    <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Hoạt động Trung tâm, Tư vấn, Hỗ trợ và Đổi mới sáng tạo sinh viên')">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" data-item-name="Hoạt động Trung tâm, Tư vấn, Hỗ trợ và Đổi mới sáng tạo sinh viên" onclick="event.stopPropagation(); openDeleteModal(this)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
                 </div>
-            </li>
+            </li> 
+            
+            <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=trung-tam-thong-tin-thu-vien'">
+                4. Trung tâm Thông tin - Thư viện
+                <div>
+                    <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Trung tâm Thông tin - Thư viện')">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" data-item-name="Trung tâm Thông tin - Thư viện" onclick="event.stopPropagation(); openDeleteModal(this)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            </li> 
+            
+            <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=cac-quy-dinh-ve-thanh-toan-hoc-phi'">
+                5. Các quy định về thanh toán học phí
+                <div>
+                    <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Các quy định về thanh toán học phí')">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" data-item-name="Các quy định về thanh toán học phí" onclick="event.stopPropagation(); openDeleteModal(this)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            </li> 
+            
+            <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=cac-chuong-trinh-trao-doi-sinh-vien'">
+                6. Các chương trình trao đổi sinh viên quốc tế
+                <div>
+                    <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Các chương trình trao đổi sinh viên quốc tế')">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" data-item-name="Các chương trình trao đổi sinh viên quốc tế" onclick="event.stopPropagation(); openDeleteModal(this)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            </li> 
+            
+            <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=ky-tuc-xa-sinh-vien'">
+                7. Ký túc xá sinh viên
+                <div>
+                    <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Ký túc xá sinh viên')">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" data-item-name="Ký túc xá sinh viên" onclick="event.stopPropagation(); openDeleteModal(this)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            </li> 
+            
+            <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=bao-hiem-y-te'">
+                8. Bảo hiểm Y tế
+                <div>
+                    <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Bảo hiểm Y tế')">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" data-item-name="Bảo hiểm Y tế" onclick="event.stopPropagation(); openDeleteModal(this)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            </li> 
+            
+            <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=nghien-cuu-khoa-hoc-sinh-vien'">
+                9. Nghiên cứu khoa học sinh viên
+                <div>
+                    <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Nghiên cứu khoa học sinh viên')">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" data-item-name="Nghiên cứu khoa học sinh viên" onclick="event.stopPropagation(); openDeleteModal(this)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            </li> 
+            
+            <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=he-thong-cong-nghe-thong-tin'">
+                10. Hệ thống Công nghệ thông tin
+                <div>
+                    <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Hệ thống Công nghệ thông tin')">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" data-item-name="Hệ thống Công nghệ thông tin" onclick="event.stopPropagation(); openDeleteModal(this)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            </li> 
+            
+            <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=khieu-nai-to-cao-kien-nghi-phan-anh'">
+                11. Khiếu nại, tố cáo, kiến nghị phản ánh
+                <div>
+                    <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Khiếu nại, tố cáo, kiến nghị phản ánh')">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" data-item-name="Khiếu nại, tố cáo, kiến nghị phản ánh" onclick="event.stopPropagation(); openDeleteModal(this)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            </li> 
+            <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=bo-quy-tac-ung-xu'">
+                12. Bộ Quy tắc ửng xử văn hóa học đường Trường đại học Phenikaa
+                <div>
+                    <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Bộ Quy tắc ửng xử văn hóa học đường Trường đại học Phenikaa')">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" data-item-name="Bộ Quy tắc ửng xử văn hóa học đường Trường đại học Phenikaa" onclick="event.stopPropagation(); openDeleteModal(this)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            </li>           
         </ul>
     </div>
 
@@ -99,27 +221,77 @@
         <div id="section2" class="content-section mb-4" data-content="phòng chào sinh viên" style="display: none;">
             <h2 class="mb-4">Phòng Chào Sinh Viên</h2>
             <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Cách 1: Luôn Đặt Mục Tiêu
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=dang-uy-truong'">
+                    1. Đảng ủy Trường
                     <div>
-                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="setEditContent('Cách 1: Luôn Đặt Mục Tiêu')"><i class="fa-solid fa-screwdriver-wrench"></i></button>
-                        <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 1: Luôn Đặt Mục Tiêu" onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
+                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Đảng ủy Trường')">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger" data-item-name="Đảng ủy Trường" onclick="event.stopPropagation(); openDeleteModal(this)">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
                     </div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Cách 2: Tham Gia Học Tập Liên Tục
+                </li> 
+                
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=doan-thanh-nien'">
+                    2. Đoàn thanh niên trường
                     <div>
-                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="setEditContent('Cách 2: Tham Gia Học Tập Liên Tục')"><i class="fa-solid fa-screwdriver-wrench"></i></button>
-                        <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 2: Tham Gia Học Tập Liên Tục" onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
+                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Đoàn thanh niên trường')">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger" data-item-name="Đoàn thanh niên trường" onclick="event.stopPropagation(); openDeleteModal(this)">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
                     </div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Cách 3: Xây Dựng Mối Quan Hệ
+                </li> 
+                
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=phong-trao-sinh-vien'">
+                    3. Phong trào sinh viên 5 tốt
                     <div>
-                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="setEditContent('Cách 3: Xây Dựng Mối Quan Hệ')"><i class="fa-solid fa-screwdriver-wrench"></i></button>
-                        <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 3: Xây Dựng Mối Quan Hệ" onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
+                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Phong trào sinh viên 5 tốt')">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger" data-item-name="Phong trào sinh viên 5 tốt" onclick="event.stopPropagation(); openDeleteModal(this)">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
                     </div>
-                </li>
+                </li> 
+                
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=hoat-dong-cau-lac-bo'">
+                    4. Hoạt động Câu lạc bộ sinh viên
+                    <div>
+                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Hoạt động Câu lạc bộ sinh viên')">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger" data-item-name="Hoạt động Câu lạc bộ sinh viên" onclick="event.stopPropagation(); openDeleteModal(this)">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </li> 
+                
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=phong-trao-the-duc-the-thao'">
+                    5. Phong trào thể dục thể thao
+                    <div>
+                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Phong trào thể dục thể thao')">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger" data-item-name="Phong trào thể dục thể thao" onclick="event.stopPropagation(); openDeleteModal(this)">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </li>                               
+                
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=danh-hieu'">
+                    6. Các danh hiệu thi đua
+                    <div>
+                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Các danh hiệu thi đua')">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger" data-item-name="Các danh hiệu thi đua" onclick="event.stopPropagation(); openDeleteModal(this)">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </li>                 
             </ul>
         </div>
 
@@ -128,31 +300,64 @@
             <h2 class="mb-4">1001 Cách Để Thành Công</h2>
 
             <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Cách 1: Luôn Đặt Mục Tiêu
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=hoc-tap-thanh-cong'">
+                    1. Làm thế nào để để học tập thành công ở trường Đại học ?
                     <div>
-                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="setEditContent('Cách 1: Luôn Đặt Mục Tiêu')"><i class="fa-solid fa-screwdriver-wrench"></i></button>
-                        <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 1: Luôn Đặt Mục Tiêu" onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
+                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Làm thế nào để để học tập thành công ở trường Đại học')">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger" data-item-name="Làm thế nào để để học tập thành công ở trường Đại học" onclick="event.stopPropagation(); openDeleteModal(this)">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
                     </div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Cách 2: Tham Gia Học Tập Liên Tục
+                </li> 
+                
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=goc-ban-be'">
+                    2. Góc bạn bè và tình yêu
                     <div>
-                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="setEditContent('Cách 2: Tham Gia Học Tập Liên Tục')"><i class="fa-solid fa-screwdriver-wrench"></i></button>
-                        <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 2: Tham Gia Học Tập Liên Tục" onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
+                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Góc bạn bè và tình yêu')">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger" data-item-name="Góc bạn bè và tình yêu" onclick="event.stopPropagation(); openDeleteModal(this)">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
                     </div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Cách 3: Xây Dựng Mối Quan Hệ
+                </li> 
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=vui-choi'">
+                    3. Ăn và chơi
                     <div>
-                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="setEditContent('Cách 3: Xây Dựng Mối Quan Hệ')"><i class="fa-solid fa-screwdriver-wrench"></i></button>
-                        <button class="btn btn-sm btn-outline-danger" data-item-name="Cách 3: Xây Dựng Mối Quan Hệ" onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>
+                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Ăn và chơi')">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger" data-item-name="Ăn và chơi" onclick="event.stopPropagation(); openDeleteModal(this)">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
                     </div>
-                </li>
+                </li> 
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=di-chuyen'">
+                    4. Di chuyển
+                    <div>
+                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Di chuyển')">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger" data-item-name="Di chuyển" onclick="event.stopPropagation(); openDeleteModal(this)">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </li> 
+                <li class="list-group-item d-flex justify-content-between align-items-center" onclick="window.location.href='./content-page.html?section=hoat-dong'">
+                    5. Hoạt động ngoại khóa
+                    <div>
+                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" onclick="event.stopPropagation(); setEditContent('Hoạt động ngoại khóa')">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger" data-item-name="Hoạt động ngoại khóa" onclick="event.stopPropagation(); openDeleteModal(this)">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </li>                               
             </ul>
         </div>
-
-      
     </div>
 
     <!-- Edit Modal -->

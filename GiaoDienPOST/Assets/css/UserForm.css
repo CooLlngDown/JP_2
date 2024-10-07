@@ -1,0 +1,304 @@
+.bg-primary {
+    background-color: #79c5f1 !important; /* Màu nền #fafafa */
+}
+
+.text-white {
+    color: #212529 !important; /* Màu chữ #212529 */
+}
+
+.p-4 {
+    padding: 1.5rem !important; /* Padding đều xung quanh */
+}
+
+/* logo css*/
+.logo {
+    width: 100px; /* Điều chỉnh kích thước chiều rộng logo */
+    height: auto; /* Đảm bảo logo giữ nguyên tỷ lệ */
+}
+
+@media (max-width: 768px) {
+    .logo {
+        width: 70px; /* Giảm kích thước logo trên màn hình nhỏ */
+    }
+}
+
+
+
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.d-flex {
+    display: flex !important; /* Sử dụng flexbox */
+}
+
+.justify-content-between {
+    justify-content: space-between !important; /* Phân bố đều hai đầu */
+}
+
+.align-items-center {
+    align-items: center !important; /* Căn giữa dọc */
+}
+
+h1.mb-0 {
+    margin-bottom: 0 !important; /* Xóa margin dưới của h1 */
+    font-size: 2rem; /* Kích thước font lớn */
+}
+
+.btn-light {
+    background-color: #f8f9fa !important; /* Màu nút sáng */
+    color: #000 !important; /* Màu chữ đen */
+}
+
+.btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: 0.3rem;
+}
+
+
+/* Button create css*/
+.button {
+    height: 50px;
+    width: 160px;
+    position: relative;
+    background-color: transparent;
+    cursor: pointer;
+    border: 2px solid #252525;
+    overflow: hidden;
+    border-radius: 30px;
+    color: #333;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .btn-txt {
+    z-index: 1;
+    font-weight: 800;
+    letter-spacing: 4px;
+  }
+  
+  .type1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 0.5s ease-in-out;
+    background-color: #333;
+    border-radius: 30px;
+    visibility: hidden;
+    height: 10px;
+    width: 10px;
+    z-index: -1;
+  }
+  
+  .button:hover {
+    box-shadow: 1px 1px 200px #252525;
+    color: #fff;
+    border: none;
+  }
+  
+  .type1:hover::after {
+    visibility: visible;
+    transform: scale(100) translateX(2px);
+  }
+
+/* add row */
+.dt-add {
+    background-color: #28a745; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    font-size: px; /* Font size */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    text-align: center;
+}
+
+.dt-add i {
+    margin-right: 1px; /* Add space between icon and text */
+}
+
+.dt-add:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.dt-add:focus {
+    outline: none; /* Remove outline on focus */
+}
+
+.dt-add:active {
+    background-color: #1e7e34; /* Even darker green when active */
+    box-shadow: none; /* Remove shadow on click */
+}
+
+th .btn-success {
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Center the table and make it smaller */
+#example {
+    max-width: 80%; /* Adjust as needed (e.g., 70%, 60%, etc.) */
+    margin: 0 auto; /* Centers the table horizontally */
+    text-align: left;
+}
+
+/* Make sure table fits within smaller screens */
+@media (max-width: 768px) {
+    #example {
+        max-width: 100%; /* On small screens, allow the table to take the full width */
+    }
+}
+
+/* Customize the header row */
+#example thead th {
+    text-align: center; /* Center align header cells */
+}
+
+/* Modal styling for form inputs */
+.modal-dialog {
+    max-width: 500px; /* Adjust modal width */
+    margin: 1.75rem auto; /* Center modal */
+}
+
+.modal-body .form-group input {
+    width: 100%; /* Make sure input fields are full width */
+}
+
+/* Button inside table */
+.table .btn {
+    margin: 0 5px;
+}
+
+/* Align buttons in the last column */
+td {
+    text-align: center;
+}
+
+/* Responsive table for smaller screens */
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Example column width and height settings */
+#example th, #example td {
+    padding: 8px; /* General padding for table cells */
+    vertical-align: middle; /* Vertically align content in the middle */
+}
+
+/* Specific width for each column */
+#example th:nth-child(1), #example td:nth-child(1) {
+    width: 5%; /* For the 'STT' column */
+}
+
+#example th:nth-child(2), #example td:nth-child(2) {
+    width: 10%; /* For the 'UserId' column */
+}
+
+#example th:nth-child(3), #example td:nth-child(3) {
+    width: 20%; /* For the 'Name' column */
+}
+
+#example th:nth-child(4), #example td:nth-child(4) {
+    width: 25%; /* For the 'Email' column */
+}
+
+#example th:nth-child(5), #example td:nth-child(5) {
+    width: 20%; /* For the 'Password' column */
+}
+
+#example th:nth-child(6), #example td:nth-child(6) {
+    width: 20%; /* For the 'Action Buttons' column */
+}
+
+/* Specific row height */
+#example tbody tr {
+    height: 50px; /* Adjust the row height as needed */
+}
+
+/* Ensure the table remains responsive */
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* searchbar css */
+/* Điều chỉnh để đảm bảo vị trí và giữ nguyên hiệu ứng */
+.search-box {
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    display: flex; /* Đảm bảo rằng phần input và button nằm cùng dòng */
+    justify-content: flex-end; /* Đảm bảo căn phải */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.input-search {
+    height: 50px;
+    width: 50px;
+    border-style: none;
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    outline: none;
+    border-radius: 25px;
+    transition: all .5s ease-in-out;
+    background-color: #22a6b3;
+    padding-right: 40px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.input-search::placeholder {
+    color: rgba(255, 255, 255, .5);
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: 100;
+}
+
+.btn-search {
+    width: 50px;
+    height: 50px;
+    border-style: none;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    right: 0px;
+    color: #ffffff;
+    background-color: transparent;
+    pointer-events: painted;
+}
+
+/* Điều chỉnh để focus được cả khi nhấn vào nút tìm kiếm */
+.search-box:hover .input-search,
+.btn-search:focus + .input-search,
+.input-search:focus {
+    width: 300px;
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+
+
+body {
+    font-family: 'Gowun Batang', sans-serif;
+    background-color: #f8f9fa;
+    
+}
+  
+
+td:last-child {text-align:center;}

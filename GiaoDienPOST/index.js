@@ -150,3 +150,17 @@ document.getElementById('confirmDelete').onclick = () => {
     var deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteModal'));
     deleteModal.hide();
 };
+
+// xư ly hien thi noi dung
+// Lấy danh sách các thẻ li
+const listItems = document.querySelectorAll('#list-group li');
+const output = document.getElementById('output');
+
+// Lặp qua từng thẻ li và thêm sự kiện click
+listItems.forEach(function(item) {
+  item.addEventListener('click', function() {
+    // Hiển thị nội dung của thẻ li trong phần output
+    output.textContent = "Nội dung của thẻ là: " + this.textContent;
+  });
+});
+
