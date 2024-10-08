@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <title>Đăng nhập</title>
-    <link rel="stylesheet" href="GiaoDien/Assets/css/dangnhap.css">
+    <link rel="stylesheet" href="GiaoDienPOST/Assets/css/dangnhap.css">
 </head>
 
 <body>

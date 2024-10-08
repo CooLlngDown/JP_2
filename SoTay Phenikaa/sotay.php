@@ -9,14 +9,22 @@
     <style>
         .content-background {
             background-image: url('../images/nhung-buoc-phat-trien-vung-chac-cua-truong-dai-hoc-phenikaa.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+            /* Đặt chiều cao cố định */
+            position: relative;
         }
     </style>
 </head>
 
+
 <body>
     <nav class="navbar">
         <div class="navbar-left">
-            <img src="../images/OIP.jfif" alt="Logo" class="logo">
+            <a href="../home_user.php" target="_blank">
+                <img src="../images/OIP.jfif" alt="Logo" class="logo">
+            </a>
         </div>
         <div class="navbar-center">
             <ul class="nav-links">
@@ -26,7 +34,8 @@
         </div>
         <div class="navbar-right">
             <div class="search-container">
-                <input type="text" placeholder="Search..." class="search-bar">
+                <input type="text" id="search-bar" placeholder="Search..." class="search-bar">
+                <span class="search-icon" onclick="performSearch()">🔍</span>
             </div>
         </div>
     </nav>
@@ -38,41 +47,126 @@
                 <div class="content-box">
                     <div class="circle">1</div>
                     <h3>QUY CHẾ - QUY ĐỊNH</h3>
-                    <ul>
+                    <ul id="content1" style="display: none;">
                         <li><a href="Hoạt động đào tạo tại trường đại học Phenikaa.php">1.Hoạt động đào tạo tại trường
                                 đại học Phenikaa</a></li>
-                        <li><a href="#">2.Hoạt động công tác sinh viên</a></li>
-                        <li><a href="#">3.Hoạt động Trung Tâm Tư vấn Hỗ trợ và Đổi mới sáng tạo sinh viên</a></li>
-                        <li><a href="#">4.Trung tâm Thông tin - Thư viện</a></li>
+                        <li><a href="Hoạt động công tác sinh viên.php">2.Hoạt động công tác sinh viên</a></li>
+                        <li><a href="Hoạt động Trung Tâm Tư vấn Hỗ trợ và Đổi mới sáng tạo sinh viên.php">3.Hoạt động
+                                Trung Tâm Tư vấn Hỗ trợ và Đổi mới sáng tạo sinh viên</a></li>
+                        <li><a href="Trung tâm Thông tin - Thư viện.php">4.Trung tâm Thông tin - Thư viện</a></li>
                     </ul>
-                    <button>+</button>
+                    <button onclick="toggleContent('content1')">+</button>
                 </div>
 
                 <div class="content-box">
                     <div class="circle">2</div>
                     <h3>CÔNG TÁC PHÁT TRIỂN ĐẢNG VÀ PHONG TRÀO SINH VIÊN</h3>
-                    <ul>
-                        <li><a href="#">1.Đảng uỷ trường</a></li>
-                        <li><a href="#">2.Đoàn thanh niên trường</a></li>
-                        <li><a href="#">3.Phong trào sinh viên 5 tốt</a></li>
+                    <ul id="content2" style="display: none;">
+                        <li><a href="Đảng ủy trường.php">1.Đảng uỷ trường</a></li>
+                        <li><a href="Đoàn thanh niên trường.php">2.Đoàn thanh niên trường</a></li>
+                        <li><a href="Phong trào sinh viên 5 tốt.php">3.Phong trào sinh viên 5 tốt</a></li>
                     </ul>
-                    <button>+</button>
+                    <button onclick="toggleContent('content2')">+</button>
                 </div>
 
                 <div class="content-box">
                     <div class="circle">3</div>
                     <h3>1001 CÁCH ĐỂ THÀNH CÔNG KHI HỌC ĐẠI HỌC</h3>
-                    <ul>
-                        <li><a href="#">1.Lập kế hoạch học tập cá nhân</a></li>
-                        <li><a href="#">2.Kỹ năng tự học</a></li>
-                        <li><a href="#">3.Tìm kiếm học bổng</a></li>
-                        <li><a href="#">4.Tham gia hoạt động ngoại khóa</a></li>
+                    <ul id="content3" style="display: none;">
+                        <li><a href="Lập kế hoạch học tập cá nhân.php">1.Lập kế hoạch học tập cá nhân</a></li>
+                        <li><a href="Kỹ năng tự học.php">2.Kỹ năng tự học</a></li>
+                        <li><a href="Tham gia hoạt động ngoại khóa.php">3.Tham gia hoạt động ngoại khóa</a></li>
                     </ul>
-                    <button>+</button>
+                    <button onclick="toggleContent('content3')">+</button>
                 </div>
             </div>
         </div>
     </section>
+
+    <div class="search-results" id="search-results"></div>
+
+
+    <!-- Phần cho Js-->
+
+    <script>
+        function toggleContent(contentId) {
+            const content = document.getElementById(contentId);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+
+        // Hàm hiển thị/ẩn nội dung
+        function toggleContent(contentId) {
+            const content = document.getElementById(contentId);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+        // Hàm tìm kiếm
+        function performSearch() {
+            const query = document.getElementById("search-bar").value.toLowerCase();
+            const contentBoxes = document.querySelectorAll(".content-box");
+            const searchResults = document.getElementById("search-results");
+            let foundResults = false;
+
+            // Xóa nội dung kết quả tìm kiếm trước đó
+            searchResults.innerHTML = "";
+
+            contentBoxes.forEach(box => {
+                const title = box.querySelector("h3").innerText.toLowerCase();
+                const links = box.querySelectorAll("ul li a");
+
+                let matchingLinks = [];
+
+                // Kiểm tra tiêu đề
+                if (title.includes(query)) {
+                    foundResults = true;
+                    searchResults.innerHTML += `<h3>${box.querySelector("h3").innerText}</h3>`;
+                }
+
+                // Kiểm tra các liên kết
+                links.forEach(link => {
+                    const linkText = link.innerText.toLowerCase();
+                    if (linkText.includes(query)) {
+                        matchingLinks.push(link);
+                        foundResults = true;
+                    }
+                });
+
+                // Hiển thị kết quả tìm kiếm
+                if (matchingLinks.length > 0) {
+                    let resultHTML = "<ul>";
+                    matchingLinks.forEach(link => {
+                        resultHTML += `<li><a href="${link.getAttribute('href')}">${link.innerText}</a></li>`;
+                    });
+                    resultHTML += "</ul>";
+                    searchResults.innerHTML += resultHTML;
+                }
+            });
+
+            // Thông báo nếu không tìm thấy kết quả
+            if (!foundResults) {
+                searchResults.innerHTML = "<p>Không tìm thấy kết quả phù hợp.</p>";
+            }
+        }
+
+        // Xử lý khi nhấn Enter trong ô tìm kiếm
+        document.getElementById("search-bar").addEventListener("keyup", function (event) {
+            if (event.key === "Enter") {
+                performSearch();
+            }
+        });
+
+
+
+    </script>
 
 </body>
 

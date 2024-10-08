@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,14 +13,17 @@
     <link rel="stylesheet" href="./Assets/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css">
     <link rel="stylesheet" href="./Assets/css/form.css">
 </head>
+
 <body>
 
     <header class="bg-primary text-white p-4">
         <div class="container-fluid d-flex justify-content-between align-items-center">
             <!-- Logo và tiêu đề nằm chung trong một thẻ div -->
             <div class="d-flex align-items-center">
-                <img src="./Assets/img-logo/Logo-DH-Phenikaa-V-Bl.webp" alt="Logo" class="logo me-2">
-                <h1 class="mb-0"><a href="Post.html" style="text-decoration: none; color: black;">Tạo Bài Đăng Mới</a></h1>
+                <a href="../home_admin.php"><img src="./Assets/img-logo/Logo-DH-Phenikaa-V-Bl.webp" alt="Logo"
+                        class="logo me-2"></a>
+                <h1 class="mb-0"><a href="Post.php" style="text-decoration: none; color: black;">Tạo Bài Đăng Mới</a>
+                </h1>
             </div>
         </div>
     </header>
@@ -35,7 +39,8 @@
 
                 <div class="mb-3">
                     <label for="content" class="form-label">Nội dung:</label>
-                    <textarea id="content" name="content" class="form-control" placeholder="Nhập nội dung" rows="4"></textarea>
+                    <textarea id="content" name="content" class="form-control" placeholder="Nhập nội dung"
+                        rows="4"></textarea>
                 </div>
 
                 <div class="mb-3">
@@ -53,39 +58,39 @@
         </div>
     </div>
 
-   <!-- Phần tử để hiển thị thông báo -->
+    <!-- Phần tử để hiển thị thông báo -->
     <div id="success-message" class="alert alert-success mt-3" style="display:none;"></div>
     <div id="error-message" class="alert alert-danger mt-3" style="display:none;"></div>
 
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 
     <script>
         // Xử lý khi submit form
-        document.getElementById("new-item-form").addEventListener("submit", function(event) {
+        document.getElementById("new-item-form").addEventListener("submit", function (event) {
             event.preventDefault();  // Ngăn chặn form submit thông thường
-        
+
             var title = document.getElementById("title").value;
             var content = document.getElementById("content").value;
             var category = document.getElementById("category").value;
-        
+
             // Ẩn tất cả các thông báo trước khi xử lý logic
             document.getElementById("success-message").style.display = "none";
             document.getElementById("error-message").style.display = "none";
-    
+
             // Kiểm tra xem người dùng đã nhập đủ thông tin chưa
             if (title && content && category !== "category0") {
                 // Hiển thị thông báo thành công
                 var successMessage = document.getElementById("success-message");
-                successMessage.innerHTML = "<i class='fas fa-check-circle'></i> Đã thêm thành công!<br><strong>Tiêu đề:</strong> " 
-                                            + title + "<br><strong>Nội dung:</strong> " 
-                                            + content + "<br><strong>Danh mục:</strong> " 
-                                            + category;
+                successMessage.innerHTML = "<i class='fas fa-check-circle'></i> Đã thêm thành công!<br><strong>Tiêu đề:</strong> "
+                    + title + "<br><strong>Nội dung:</strong> "
+                    + content + "<br><strong>Danh mục:</strong> "
+                    + category;
                 successMessage.style.display = "block";  // Hiển thị thông báo thành công
-        
+
                 // Xóa dữ liệu trong form sau khi gửi
                 document.getElementById("new-item-form").reset();
             } else {
@@ -96,7 +101,8 @@
             }
         });
     </script>
-    
-    
+
+
 </body>
+
 </html>

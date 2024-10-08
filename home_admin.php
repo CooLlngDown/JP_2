@@ -21,8 +21,8 @@
         <div class="menu-links">
             <a href="home_admin.php">Trang Chủ</a>
             <a href="#">Mục lục</a>
-            <a href="#">Quản lý tài khoản</a>
-            <a href="GiaoDien/Post.php">Quản lý nội dung</a>
+            <a href="GiaoDienPOST/User.php">Quản lý tài khoản</a>
+            <a href="GiaoDienPOST/Post.php">Quản lý nội dung</a>
         </div>
 
         <!-- Search box -->

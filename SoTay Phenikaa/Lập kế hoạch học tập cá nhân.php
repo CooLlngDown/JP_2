@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hoạt động đào tạo tại trường đại học Phenikaa</title>
+    <title>Lập kế hoạch học tập cá nhân</title>
     <style>
         .container {
             max-width: 1200px;
@@ -69,7 +69,7 @@
     include("../connect.php"); // Kết nối đến cơ sở dữ liệu
     
     // Truy vấn để lấy tiêu đề và nội dung từ bảng quyche có quyche_id = 1
-    $stmt = $conn->prepare("SELECT title, description FROM quyche WHERE quyche_id = ?");
+    $stmt = $conn->prepare("SELECT title, description FROM success WHERE success_id = ?");
     $stmt->bind_param("i", $quyche_id); // Liên kết biến quyche_id
     $quyche_id = 1; // Giá trị quyche_id mà bạn muốn lấy
     $stmt->execute();
@@ -87,11 +87,11 @@
     <div class="container">
         <?php echo $title; ?><br><br>
 
-        <div class="page active">
+
+        <div class="page active" id="page1">
             <?php echo $description; ?>
         </div>
     </div>
-
 
 
 
