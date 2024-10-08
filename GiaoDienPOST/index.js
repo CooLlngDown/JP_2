@@ -28,18 +28,35 @@
 
    // Search Functionality
    searchButton.addEventListener('click', function() {
-       const query = globalSearch.value.toLowerCase();
-       contentSections.forEach(section => {
-           const sectionContent = section.getAttribute('data-content');
-           if (sectionContent.includes(query)) {
-               section.style.display = 'block'; // Show section if it matches
-           } else {
-               section.style.display = 'none'; // Hide section if it doesn't match
-           }
-       });
-   });
+    const query = globalSearch.value.toLowerCase(); // Lấy từ khóa tìm kiếm
+    let hasResult = false; // Biến để theo dõi có kết quả hay không
 
-           // Function to set the content for editing
+    // Ẩn tất cả các phần trước khi hiển thị kết quả
+    contentSections.forEach(section => {
+        section.style.display = 'none'; // Ẩn tất cả các phần
+    });
+
+    // Tìm kiếm theo từ khóa
+    contentSections.forEach(section => {
+        const sectionContent = section.getAttribute('data-content'); // Lấy nội dung từ thuộc tính
+        const sectionTitle = section.querySelector('h2') ? section.querySelector('h2').innerText : ''; // Lấy tiêu đề nếu có
+
+        // Kiểm tra xem từ khóa có trong nội dung hoặc tiêu đề không
+        if ((sectionContent && sectionContent.toLowerCase().includes(query)) ||
+            (sectionTitle && sectionTitle.toLowerCase().includes(query))) {
+            section.style.display = 'block'; // Hiển thị phần nếu khớp
+            hasResult = true; // Đánh dấu có kết quả
+        }
+    });
+
+    // Nếu không có kết quả nào khớp
+    if (!hasResult) {
+        alert("Không tìm thấy kết quả"); // Hiển thị thông báo không có kết quả
+    }
+});
+
+
+    // Function to set the content for editing
    function setEditContent(title, content) {
        document.getElementById('editTitle').value = title;
        document.getElementById('editContent').value = content;

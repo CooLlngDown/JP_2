@@ -38,7 +38,7 @@
                 <th>Email</th>
                 <th>Password</th>
                 <th style="text-align:center;width:100px;">Add row 
-                    <button type="button" data-func="dt-add" class="btn btn-success btn-xs dt-add">
+                    <button type="button" data-func="dt-add" class="btn btn-success btn-xs dt-add" onclick="window.location.href='FormAdd.html';">
                         <i class="fa-solid fa-user-plus"></i>
                     </button>
                 </th>
@@ -247,6 +247,12 @@
             var userEmail = $('#addEmail').val();
             var userPassword = $('#addPassword').val();
     
+            // Kiểm tra dữ liệu trước khi thêm
+            if (!userName || !userId || !userEmail || !userPassword) {
+                alert("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
+    
             var rowData = [
                 table.rows().count() + 1,
                 userId,
@@ -255,20 +261,25 @@
                 userPassword,
                 `<button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" 
                     onclick="setEditContent('${userName}', '${userId}', '${userEmail}')"><i class="fa-solid fa-screwdriver-wrench"></i></button>
-                 <button class="btn btn-sm btn-outline-danger dt-delete" onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>`
+                 <button class="btn btn-sm btn-outline-danger dt-delete"><i class="fa-solid fa-trash"></i></button>`
             ];
     
             table.row.add(rowData).draw(false);
             $('#addUserModal').modal('hide');
-            rebindEvents();
+            rebindEvents(); // Gán lại sự kiện xóa sau khi thêm người dùng mới
         });
     
         // Hàm gán lại sự kiện cho nút xóa
         function rebindEvents() {
             $('.dt-delete').off('click').on('click', function() {
                 currentDeleteRow = $(this).parents('tr');
-                $('#deleteModal').modal('show');
+                openDeleteModal();
             });
+        }
+    
+        // Hàm mở modal xóa
+        function openDeleteModal() {
+            $('#deleteModal').modal('show');
         }
     
         // Xác nhận xóa
@@ -281,9 +292,16 @@
         });
     });
     
-    // Lưu thay đổi
+    // Lưu thay đổi sau khi chỉnh sửa
     function saveChanges() {
         console.log("Changes saved");
+    }
+    
+    // Hàm gán nội dung vào form khi chỉnh sửa người dùng
+    function setEditContent(userName, userId, userEmail) {
+        $('#editName').val(userName);
+        $('#editUserId').val(userId);
+        $('#editEmail').val(userEmail);
     }
     
 </script>
