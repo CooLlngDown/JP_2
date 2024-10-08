@@ -193,6 +193,7 @@ body {
     background-color: #004481;
     color: white;
     padding: 10px;
+    height: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;

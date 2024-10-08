@@ -32,10 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				session_start();
 				$_SESSION["admin"] = $admin["name"];  // Lưu tên admin vào session
 				$_SESSION["success"] = true;
+				$_SESSION["user_id"] = $admin["user_id"];  // Lưu user_id vào session
 				header("location:home_admin.php");  // Chuyển hướng đến trang admin
 				exit();
 			} else {
-				// Nếu không tìm thấy tài khoản trong cả 2 bảng
 				echo "<script>alert('Thông tin bạn nhập không chính xác!');window.location='dangnhap.php';</script>";
 			}
 		} else {
@@ -43,12 +43,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			session_start();
 			$_SESSION["user"] = $thanhvien["name"];  // Lưu tên user vào session
 			$_SESSION["success"] = true;
+			$_SESSION["user_id"] = $thanhvien["user_id"];  // Lưu user_id vào session
 			header("location:home_user.php");  // Chuyển hướng đến trang user
 			exit();
 		}
 	}
 } else {
-	// Nếu người dùng không gửi yêu cầu POST, chuyển hướng về trang đăng nhập
 	header("Location: dangnhap.php");
 	exit();
 }
