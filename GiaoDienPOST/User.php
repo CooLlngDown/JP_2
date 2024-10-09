@@ -39,9 +39,10 @@
                 <th>Email</th>
                 <th>Password</th>
                 <th style="text-align:center;width:100px;">Add row
-                    <button type="button" data-func="dt-add" class="btn btn-success btn-xs dt-add">
-                        <i class="fa-solid fa-user-plus"></i>
-                    </button>
+                    <a href="FormAdd.php"><button type="button" data-func="dt-add"
+                            class="btn btn-success btn-xs dt-add">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </button></a>
                 </th>
             </tr>
         </thead>
@@ -71,83 +72,28 @@
                     <td><?= htmlspecialchars($user['email']) ?></td>
                     <td><?= htmlspecialchars($user['password']) ?></td>
                     <td>
-                        <button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal"
-                            data-bs-target="#editModal"
-                            onclick="event.stopPropagation(); setEditContent('<?= htmlspecialchars($user['name']) ?>', '<?= htmlspecialchars($user['user_id']) ?>', '<?= htmlspecialchars($user['email']) ?>')">
+                        <a href="update_user.php?user_id=<?= htmlspecialchars($user['user_id']) ?>&name=<?= htmlspecialchars($user['name']) ?>&email=<?= htmlspecialchars($user['email']) ?>&password=<?= htmlspecialchars($user['password']) ?>"
+                            class="btn btn-sm btn-outline-success me-2">
                             <i class="fa-solid fa-screwdriver-wrench"></i>
-                        </button>
-                        <button class="btn btn-sm btn-outline-danger"
-                            data-item-name="<?= htmlspecialchars($user['name']) ?>"
-                            onclick="event.stopPropagation(); currentDeleteRow = this.parentElement.parentElement; openDeleteModal()">
+                        </a>
+                        <a href="delete_user.php?user_id=<?= htmlspecialchars($user['user_id']) ?>"
+                            class="btn btn-sm btn-outline-danger"
+                            onclick="return confirm('Bạn có chắc chắn muốn xóa người dùng này không?');">
                             <i class="fa-solid fa-trash"></i>
-                        </button>
+                        </a>
                     </td>
+
                 </tr>
+
             <?php endforeach; ?>
         </tbody>
 
     </table>
 
     <!-- Modal Chỉnh sửa -->
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $name = htmlspecialchars($_POST['name']);
-        $user_id = htmlspecialchars($_POST['user_id']);
-        $email = htmlspecialchars($_POST['email']);
-        $pass = htmlspecialchars($_POST['pass']);
 
-        $stmt = $conn->prepare("UPDATE users SET name = ?, password = ? WHERE user_id = ?");
-        $stmt->bind_param("sss", $name, $pass, $user_id);
 
-        if ($stmt->execute()) {
-            echo "Cập nhật thông tin thành công";
-        } else {
-            echo "Lỗi, cập nhật chưa thành công: " . $conn->error;
-        }
 
-        $stmt->close();
-        $conn->close();
-    }
-    ?>
-
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Chỉnh sửa Thông tin</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="editForm" method="POST">
-                        <div class="mb-3">
-                            <label for="editName" class="form-label">Tên</label>
-                            <input type="text" class="form-control" id="editName" name="name"
-                                value="<?= htmlspecialchars($user['name']) ?>" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="editUserId" class="form-label">UserId</label>
-                            <input type="text" class="form-control" id="editUserId" name="user_id"
-                                value="<?= htmlspecialchars($user['user_id']) ?>" readonly required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="editEmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="editEmail" name="email"
-                                value="<?= htmlspecialchars($user['email']) ?>" required readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label for="editPass" class="form-label">Password</label>
-                            <input type="text" class="form-control" id="editPass" name="pass"
-                                value="<?= htmlspecialchars($user['password']) ?>" required>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                    <button type="submit" class="btn btn-primary" form="editForm">Lưu</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
 
@@ -206,74 +152,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        $(document).ready(function () {
-            // Khởi tạo DataTable
-            var table = $('#example').DataTable({
-                "paging": false,
-                "autoWidth": true,
-                "columnDefs": [
-                    { "orderable": false, "targets": 5 } // Tắt sắp xếp cho cột hành động
-                ]
-            });
-
-            let currentDeleteRow = null;
-
-            // Sự kiện nút thêm người dùng
-            $('.dt-add').on('click', function () {
-                $('#addUserForm')[0].reset();
-                $('#addUserModal').modal('show');
-            });
-
-            // Lưu người dùng mới
-            $('#saveUserButton').on('click', function () {
-                var userName = $('#addName').val();
-                var userId = $('#addUserId').val();
-                var userEmail = $('#addEmail').val();
-                var userPassword = $('#addPassword').val();
-
-                var rowData = [
-                    table.rows().count() + 1,
-                    userId,
-                    userName,
-                    userEmail,
-                    userPassword,
-                    `<button class="btn btn-sm btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#editModal" 
-                    onclick="setEditContent('${userName}', '${userId}', '${userEmail}')"><i class="fa-solid fa-screwdriver-wrench"></i></button>
-                 <button class="btn btn-sm btn-outline-danger dt-delete" onclick="openDeleteModal(this)"><i class="fa-solid fa-trash"></i></button>`
-                ];
-
-                table.row.add(rowData).draw(false);
-                $('#addUserModal').modal('hide');
-                rebindEvents();
-            });
-
-            // Hàm gán lại sự kiện cho nút xóa
-            function rebindEvents() {
-                $('.dt-delete').off('click').on('click', function () {
-                    currentDeleteRow = $(this).parents('tr');
-                    $('#deleteModal').modal('show');
-                });
-            }
-
-            // Xác nhận xóa
-            $('#confirmDelete').on('click', function () {
-                if (currentDeleteRow) {
-                    table.row(currentDeleteRow).remove().draw(false);
-                    $('#deleteModal').modal('hide');
-                    currentDeleteRow = null;
-                }
-            });
-        });
-
-        // Lưu thay đổi
-        function saveChanges() {
-            console.log("Changes saved");
-        }
-
-    </script>
-
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

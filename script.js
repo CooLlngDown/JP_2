@@ -24,28 +24,3 @@ document.getElementById('closeChat').addEventListener('click', function() {
     localStorage.setItem('chatBoxStatus', 'closed'); // Lưu trạng thái đóng
 });
 
-// Thêm sự kiện khi nhấn vào icon người dùng
-document.getElementById('userIcon').addEventListener('click', function() {
-    document.getElementById('overlay').style.display = 'block'; // Hiển thị overlay
-    document.getElementById('userInfoForm').style.display = 'block'; // Hiển thị form thông tin cá nhân
-});
-
-// Đóng form thông tin cá nhân khi nhấn vào nút 'close' trong form
-document.getElementById('closeForm').addEventListener('click', function() {
-    document.getElementById('userInfoForm').style.display = 'none';
-    document.getElementById('overlay').style.display = 'none'; // Ẩn overlay
-});
-
-// Ẩn form và overlay khi nhấn vào overlay
-document.getElementById('overlay').addEventListener('click', function() {
-    document.getElementById('userInfoForm').style.display = 'none';
-    document.getElementById('overlay').style.display = 'none'; // Ẩn overlay
-});
-
-// Thêm sự kiện submit form
-document.getElementById('infoForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    alert('Thay đổi đã được lưu!');
-    document.getElementById('userInfoForm').style.display = 'none';
-    document.getElementById('overlay').style.display = 'none'; // Ẩn overlay
-});

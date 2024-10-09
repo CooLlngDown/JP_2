@@ -133,23 +133,6 @@ nav.navbar .nav-link:hover {
     box-shadow: 1px 1px 200px #838383;
 }
 
-/* Liên kết đang active */
-nav.navbar .nav-link.active {
-    color: orange; /* Đổi màu chữ thành màu cam */
-    background-color: transparent; /* Không có nền */
-}
-
-/* Tạo hiệu ứng underline cho liên kết active */
-nav.navbar .nav-link.active::after {
-    content: ""; /* Tạo một pseudo-element */
-    display: block; /* Đặt nó là block để hiển thị dưới chữ */
-    width: 100%; /* Chiều rộng bằng chiều rộng của liên kết */
-    height: 2px; /* Chiều cao của gạch chân */
-    background-color: orange; /* Màu của gạch chân */
-    position: absolute; /* Đặt vị trí tuyệt đối */
-    left: 0; /* Đặt từ bên trái */
-    bottom: 0; /* Đặt tại đáy của liên kết */
-}
 
 /* Điều chỉnh cho navbar-toggler trên thiết bị di động */
 .navbar-toggler {
@@ -273,4 +256,11 @@ body {
 
 .container-fluid {
     max-width: 1600px;
+}
+
+
+.big {
+    text-decoration: none;
+    color: #000;
+    margin-right: 20px;
 }

@@ -109,63 +109,6 @@
             }
         }
 
-        // Hàm tìm kiếm
-        function performSearch() {
-            const query = document.getElementById("search-bar").value.toLowerCase();
-            const contentBoxes = document.querySelectorAll(".content-box");
-            const searchResults = document.getElementById("search-results");
-            let foundResults = false;
-
-            // Xóa nội dung kết quả tìm kiếm trước đó
-            searchResults.innerHTML = "";
-
-            contentBoxes.forEach(box => {
-                const title = box.querySelector("h3").innerText.toLowerCase();
-                const links = box.querySelectorAll("ul li a");
-
-                let matchingLinks = [];
-
-                // Kiểm tra tiêu đề
-                if (title.includes(query)) {
-                    foundResults = true;
-                    searchResults.innerHTML += `<h3>${box.querySelector("h3").innerText}</h3>`;
-                }
-
-                // Kiểm tra các liên kết
-                links.forEach(link => {
-                    const linkText = link.innerText.toLowerCase();
-                    if (linkText.includes(query)) {
-                        matchingLinks.push(link);
-                        foundResults = true;
-                    }
-                });
-
-                // Hiển thị kết quả tìm kiếm
-                if (matchingLinks.length > 0) {
-                    let resultHTML = "<ul>";
-                    matchingLinks.forEach(link => {
-                        resultHTML += `<li><a href="${link.getAttribute('href')}">${link.innerText}</a></li>`;
-                    });
-                    resultHTML += "</ul>";
-                    searchResults.innerHTML += resultHTML;
-                }
-            });
-
-            // Thông báo nếu không tìm thấy kết quả
-            if (!foundResults) {
-                searchResults.innerHTML = "<p>Không tìm thấy kết quả phù hợp.</p>";
-            }
-        }
-
-        // Xử lý khi nhấn Enter trong ô tìm kiếm
-        document.getElementById("search-bar").addEventListener("keyup", function (event) {
-            if (event.key === "Enter") {
-                performSearch();
-            }
-        });
-
-
-
     </script>
 
 </body>

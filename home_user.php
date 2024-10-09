@@ -76,12 +76,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <!-- Search box -->
         <div class="search-box">
             <input type="text" placeholder="Tìm kiếm...">
-            <div class="user-icon" id="userIcon">👤</div>
+            <a href="user_i4.php">
+                <div class="user-icon" id="userIcon">👤</div>
+            </a>
+            <a href="dangxuat.php" style="text-decoration: none;">
+                Đăng xuất
+            </a>
             <!-- User info box -->
             <div class="user-info-box" id="userInfoBox" style="display: none;">
                 <p>Xin chào, <strong>A</strong></p>
                 <div>
-                    <a href="#" style="color: black; text-decoration: none" id="userInfoLink">Thông tin cá nhân</a>
+                    <a href="#" style="color: black; text-decoration: none">Thông tin cá nhân</a>
                 </div>
                 <div>
                     <a href="#" style="color: black; text-decoration: none;">Đăng xuất</a>
@@ -119,25 +124,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
     </div>
-
-    <div class="overlay" id="overlay"></div>
-    <!-- User Info Form -->
-    <div class="user-info-form" id="userInfoForm">
-        <h2>Thông tin cá nhân</h2>
-        <form method="POST" action="">
-            <label for="name">Tên:</label><br>
-            <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($user['name']); ?>"><br><br>
-
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>"
-                readonly><br><br>
-
-            <button type="submit">Lưu thay đổi</button>
-            <button type="button" id="closeForm">Đóng</button>
-            <button type="button"><a href="dangxuat.php">Đăng xuất</a></button>
-        </form>
-    </div>
-
 
     <!-- Chat Button -->
     <div class="chat-button" id="chatButton">

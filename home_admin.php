@@ -7,6 +7,7 @@
     <title>Phenikaa University</title>
     <!-- Link to external CSS -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styleChatbox.css">
 </head>
 
 <body>
@@ -22,7 +23,7 @@
             <a href="home_admin.php">Trang Chủ</a>
             <a href="#">Mục lục</a>
             <a href="GiaoDienPOST/User.php">Quản lý tài khoản</a>
-            <a href="GiaoDienPOST/Post.php">Quản lý nội dung</a>
+            <a href="GiaoDienPOST/PostQuyche.php">Quản lý nội dung</a>
         </div>
 
         <!-- Search box -->
@@ -62,6 +63,75 @@
             </div>
         </div>
     </div>
+    <!-- Chat Button -->
+    <div class="chat-button" id="chatButton">
+        💬
+    </div>
+
+    <!-- Chat Box -->
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            <h4>Chat</h4>
+            <button id="closeChat">✖️</button>
+        </div>
+        <div class="chat-body">
+            <p>Bạn mong muốn biết thêm về?</p>
+            <form id="chatForm">
+                <button type="button" data-issue="quyche">Quy chế - Quy định</button><br><br>
+                <button type="button" data-issue="ptdang">Công tác phát triển Đảng</button><br><br>
+                <button type="button" data-issue="cachthanhcong">Cách thành công ở đại học</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('closeChat').addEventListener('click', function () {
+            document.getElementById('chatBox').style.display = 'none';
+        });
+
+        document.getElementById('chatForm').addEventListener('click', function (event) {
+            if (event.target.tagName === 'BUTTON') {
+                const issue = event.target.getAttribute('data-issue');
+                displayResponse(issue);
+            }
+        });
+
+        function displayResponse(issue) {
+            const chatBody = document.querySelector('.chat-body');
+            let responseHTML = '';
+
+            if (issue === 'quyche') {
+                responseHTML = `
+                <div class="response">
+                    <p>Các câu hỏi thường gặp về Quy chế-Quy định:</p>
+                    <ul>
+                        <li><a href="SoTay Phenikaa/Hoạt động đào tạo tại trường đại học Phenikaa.php">Hoạt động đào tạo?</a></li>
+                        <li><a href="SoTay Phenikaa/Hoạt động công tác sinh viên.php">Hoạt động công tác sinh viên?</a></li>
+                    </ul>
+                </div>`;
+            } else if (issue === 'ptdang') {
+                responseHTML = `
+                <div class="response">
+                    <p>Các câu hỏi thường gặp về Công tác phát triển Đảng:</p>
+                    <ul>
+                        <li><a href="SoTay Phenikaa/Đoàn thanh niên trường.php">Đoàn thanh niên trường?</a></li>
+                        <li><a href="SoTay Phenikaa/Phong trào sinh viên 5 tốt.php">Sinh viên 5 tốt?</a></li>
+                    </ul>
+                </div>`;
+            } else if (issue === 'cachthanhcong') {
+                responseHTML = `
+                <div class="response">
+                    <p>Các câu hỏi thường gặp về cách thành công ở đại học:</p>
+                    <ul>
+                        <li><a href="SoTay Phenikaa/Kỹ năng tự học.php">Khả năng tự học</a></li>
+                        <li><a href="SoTay Phenikaa/Lập kế hoạch học tập cá nhân.php">Lập kế hoạch học tập</a></li>
+                    </ul>
+                </div>`;
+            }
+
+            chatBody.innerHTML += responseHTML;
+        }
+    </script>
     <div class="footer">
         © 2024 Phenikaa University - Designed by Students
     </div>

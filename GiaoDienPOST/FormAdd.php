@@ -1,55 +1,10 @@
-<?php
-// Kết nối cơ sở dữ liệu
-include("../connect.php");
-
-
-// Kiểm tra xem form có được gửi đi không
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Lấy dữ liệu từ form
-    $title = $_POST['title'];
-    $content = $_POST['content'];
-    $category = $_POST['category'];
-
-    // Kiểm tra xem các trường đã được điền đầy đủ hay chưa
-    if (empty($title) || empty($content) || $category === 'category0') {
-        $message = "Vui lòng điền đầy đủ thông tin và chọn nơi lưu trữ.";
-    } else {
-        // Dựa vào lựa chọn của người dùng, lưu vào bảng tương ứng
-        if ($category === 'Quy Chế - Quy Định') {
-            $insert_query = "INSERT INTO quyche (title, description) VALUES (?, ?)";
-        } elseif ($category === 'Phong trào sinh viên') {
-            $insert_query = "INSERT INTO mucluc (title, description) VALUES (?, ?)";
-        } elseif ($category === '1001 cách để thành công') {
-            $insert_query = "INSERT INTO success (title, description) VALUES (?, ?)";
-        }
-
-        // Chuẩn bị và thực thi câu truy vấn
-        $stmt = $conn->prepare($insert_query);
-        $stmt->bind_param('ss', $title, $content);
-
-        if ($stmt->execute()) {
-            header("Location: PostQuyche.php");
-            echo "<script>alert('Tạo bài mới thành công');</script>";
-        } else {
-            echo "<script>alert('Có lỗi, chưa thể tạo bài mới');</script>";
-        }
-
-        // Đóng câu truy vấn
-        $stmt->close();
-    }
-}
-
-// Đóng kết nối
-$conn->close();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Tạo Mới</title>
+    <title>Thêm Người Dùng Mới</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -64,50 +19,87 @@ $conn->close();
 
     <header class="bg-primary text-white p-4">
         <div class="container-fluid d-flex justify-content-between align-items-center">
-            <!-- Logo và tiêu đề nằm chung trong một thẻ div -->
             <div class="d-flex align-items-center">
-                <a href="PostQuyche.php"><img src="./Assets/img-logo/Logo-DH-Phenikaa-V-Bl.webp" alt="Logo"
+                <a href="User.php"><img src="./Assets/img-logo/Logo-DH-Phenikaa-V-Bl.webp" alt="Logo"
                         class="logo me-2"></a>
-                <h1 class="mb-0"><a href="PostQuyche.php" style="text-decoration: none; color: black;">Tạo Bài Đăng
-                        Mới</a>
-                </h1>
+                <h1 class="mb-0"><a href="User.php" style="text-decoration: none; color: black;">Thêm Người Dùng
+                        Mới</a></h1>
             </div>
         </div>
     </header>
 
-    <!-- Căn giữa form sử dụng Bootstrap -->
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
         <div id="form-container" class="form-container w-100">
-            <form id="new-item-form" method="POST" class="p-4 shadow rounded bg-white">
+            <form id="new-user-form" class="p-4 shadow rounded bg-white" method="POST">
                 <div class="mb-3">
-                    <label for="title" class="form-label">Tên tiêu đề:</label>
-                    <input type="text" id="title" name="title" class="form-control" placeholder="Nhập tiêu đề">
+                    <label for="userId" class="form-label">User ID:</label>
+                    <input type="text" id="userId" name="userId" class="form-control" placeholder="Nhập User ID"
+                        required>
                 </div>
 
                 <div class="mb-3">
-                    <label for="content" class="form-label">Nội dung:</label>
-                    <textarea id="content" name="content" class="form-control" placeholder="Nhập nội dung"
-                        rows="4"></textarea>
+                    <label for="name" class="form-label">Tên:</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Nhập tên" required>
                 </div>
 
                 <div class="mb-3">
-                    <label for="category" class="form-label">Lựa chọn thêm vào đâu:</label>
-                    <select id="category" name="category" class="form-select" required>
-                        <option value="category0">------ Chọn Nơi Lưu Trữ ------</option>
-                        <option value="Quy Chế - Quy Định">Quy chế - Quy định</option>
-                        <option value="Phong trào sinh viên">Phong trào sinh viên</option>
-                        <option value="1001 cách để thành công">1001 cách để thành công</option>
-                    </select>
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Nhập email" required>
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100">Tạo</button>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Mật khẩu:</label>
+                    <input type="password" id="password" name="password" class="form-control"
+                        placeholder="Nhập mật khẩu" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Thêm Người Dùng</button>
             </form>
         </div>
     </div>
+    <?php
+    include '../connect.php';
 
-    <!-- Phần tử để hiển thị thông báo -->
-    <div id="success-message" class="alert alert-success mt-3" style="display:none;"></div>
-    <div id="error-message" class="alert alert-danger mt-3" style="display:none;"></div>
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Nhận dữ liệu từ form
+        $userId = $_POST['userId'];
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        // Kiểm tra xem user_id hoặc email đã tồn tại trong cơ sở dữ liệu hay chưa
+        $checkSql = "SELECT * FROM users WHERE user_id = ? OR email = ?";
+        $checkStmt = $conn->prepare($checkSql);
+        $checkStmt->bind_param("ss", $userId, $email);
+        $checkStmt->execute();
+        $result = $checkStmt->get_result();
+
+        if ($result->num_rows > 0) {
+            // Nếu user_id hoặc email đã tồn tại, hiển thị thông báo lỗi
+            echo "<script>alert('User ID hoặc Email đã tồn tại. Vui lòng nhập thông tin khác.'); window.history.back();</script>";
+        } else {
+            // Nếu cả user_id và email chưa tồn tại, thực hiện thêm mới người dùng
+            $sql = "INSERT INTO users (user_id, name, email, password) VALUES (?, ?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("ssss", $userId, $name, $email, $password);
+
+            // Thực thi truy vấn và kiểm tra kết quả
+            if ($stmt->execute()) {
+                echo "<script>alert('Người dùng được thêm thành công');</script>";
+                header("Location: User.php");
+            } else {
+                echo "Lỗi: " . $stmt->error;
+            }
+            // Đóng statement và kết nối
+            $stmt->close();
+        }
+
+        // Đóng statement kiểm tra và kết nối
+        $checkStmt->close();
+        $conn->close();
+    }
+    ?>
+
     <!-- Chat Button -->
     <div class="chat-button" id="chatButton">
         💬
@@ -177,6 +169,11 @@ $conn->close();
             chatBody.innerHTML += responseHTML;
         }
     </script>
+
+
+
+    <div id="success-message" class="alert alert-success mt-3" style="display:none;"></div>
+    <div id="error-message" class="alert alert-danger mt-3" style="display:none;"></div>
     <script src="../script.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

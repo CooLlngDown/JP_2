@@ -1,5 +1,5 @@
    // JavaScript to handle navigation and content switching
-   const navLinks = document.querySelectorAll('.nav-link');
+//    const navLinks = document.querySelectorAll('.nav-link');
    const contentSections = document.querySelectorAll('.content-section');
    const globalSearch = document.getElementById('globalSearch');
    const searchButton = document.getElementById('searchButton');
