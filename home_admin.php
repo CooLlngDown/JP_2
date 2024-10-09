@@ -31,7 +31,9 @@
             <input type="text" placeholder="Tìm kiếm...">
             <div class="user-icon">ad</div>
         </div>
-
+        <a href="dangxuat.php" style="text-decoration: none;">
+            Đăng xuất
+        </a>
     </div>
 
     <!-- Main content -->

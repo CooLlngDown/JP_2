@@ -41,6 +41,12 @@
             border: none;
             width: 100px;
         }
+
+        /* Định dạng từ khóa được bôi đen */
+        mark {
+            background-color: yellow;
+            font-weight: bold;
+        }
     </style>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -58,7 +64,7 @@
         </div>
         <div class="navbar-right">
             <div class="search-container">
-                <input type="text" placeholder="Search..." class="search-bar">
+                <input type="text" id="search-bar" placeholder="Search..." class="search-bar">
                 <span class="search-icon" onclick="performSearch()">🔍</span>
             </div>
         </div>
@@ -85,15 +91,34 @@
 
 
     <div class="container">
-        <?php echo $title; ?><br><br>
-
-
-        <div class="page active">
+        <h1><?php echo $title; ?></h1>
+        <div id="content" class="page active">
             <?php echo $description; ?>
         </div>
     </div>
 
+    <script>
+        function performSearch() {
+            // Lấy từ khóa tìm kiếm
+            const keyword = document.getElementById('search-bar').value;
+            const contentElement = document.getElementById('content');
 
+            // Đảm bảo từ khóa không rỗng
+            if (keyword.trim() === "") {
+                return;
+            }
+
+            // Xóa các đoạn bôi đen trước đó (nếu có)
+            const originalText = contentElement.innerHTML.replace(/<mark>|<\/mark>/g, '');
+
+            // Tìm và bôi đen từ khóa
+            const regex = new RegExp(`(${keyword})`, 'gi');
+            const highlightedText = originalText.replace(regex, '<mark>$1</mark>');
+
+            // Cập nhật lại nội dung với từ khóa đã bôi đen
+            contentElement.innerHTML = highlightedText;
+        }
+    </script>
 
 </body>
 

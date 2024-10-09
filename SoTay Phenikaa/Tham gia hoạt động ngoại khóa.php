@@ -58,7 +58,7 @@
         </div>
         <div class="navbar-right">
             <div class="search-container">
-                <input type="text" placeholder="Search..." class="search-bar">
+                <input type="text" id="search-bar" placeholder="Search..." class="search-bar">
                 <span class="search-icon" onclick="performSearch()">🔍</span>
             </div>
         </div>
@@ -88,11 +88,32 @@
         <?php echo $title; ?><br><br>
 
 
-        <div class="page active" id="page1">
+        <div class="page active" id="content">
             <?php echo $description; ?>
         </div>
     </div>
+    <script>
+        function performSearch() {
+            // Lấy từ khóa tìm kiếm
+            const keyword = document.getElementById('search-bar').value;
+            const contentElement = document.getElementById('content');
 
+            // Đảm bảo từ khóa không rỗng
+            if (keyword.trim() === "") {
+                return;
+            }
+
+            // Xóa các đoạn bôi đen trước đó (nếu có)
+            const originalText = contentElement.innerHTML.replace(/<mark>|<\/mark>/g, '');
+
+            // Tìm và bôi đen từ khóa
+            const regex = new RegExp(`(${keyword})`, 'gi');
+            const highlightedText = originalText.replace(regex, '<mark>$1</mark>');
+
+            // Cập nhật lại nội dung với từ khóa đã bôi đen
+            contentElement.innerHTML = highlightedText;
+        }
+    </script>
 
 
 </body>
