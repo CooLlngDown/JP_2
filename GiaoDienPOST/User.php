@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./Assets/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/all.min.css">
     <link rel="stylesheet" href="./Assets/css/UserForm.css">
+    <link rel="stylesheet" href="../styleChatbox.css">
 </head>
 
 <body>
@@ -24,8 +25,8 @@
                 <h1 class="mb-0">Quản lý Tài Khoản</h1>
             </div>
             <div class="search-box">
-                <input type="text" class="input-search" placeholder="Type to Search...">
-                <button class="btn-search"><i class="fas fa-search"></i></button>
+                <input type="text" class="input-search" id="globalSearch" placeholder="Điền từ khóa tìm kiếm">
+                <button class="btn-search" id="searchButton"><i class="fas fa-search"></i></button>
             </div>
         </div>
     </header>
@@ -46,93 +47,79 @@
                 </th>
             </tr>
         </thead>
-        <?php
-        session_start();
-        include("../connect.php"); // Kết nối đến cơ sở dữ liệu
-        
-        // Truy vấn để lấy danh sách người dùng từ bảng users
-        $stmt = $conn->prepare("SELECT user_id, name, email, password FROM users");
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $users = [];
 
-        // Lưu dữ liệu vào mảng
-        while ($row = $result->fetch_assoc()) {
-            $users[] = $row;
-        }
+        <script>
+            document.getElementById('searchButton').addEventListener('click', function () {
+                // Lấy giá trị từ ô tìm kiếm
+                var keyword = document.getElementById('globalSearch').value;
 
-        ?>
+                // Chuyển hướng với từ khóa tìm kiếm
+                var url = 'User.php?keyword=' + encodeURIComponent(keyword);
+                window.location.href = url;
+            });
+        </script>
 
         <tbody>
-            <?php foreach ($users as $index => $user): ?>
-                <tr>
-                    <td><?= $index + 1 ?></td>
-                    <td><?= htmlspecialchars($user['user_id']) ?></td>
-                    <td><?= htmlspecialchars($user['name']) ?></td>
-                    <td><?= htmlspecialchars($user['email']) ?></td>
-                    <td><?= htmlspecialchars($user['password']) ?></td>
-                    <td>
-                        <a href="update_user.php?user_id=<?= htmlspecialchars($user['user_id']) ?>&name=<?= htmlspecialchars($user['name']) ?>&email=<?= htmlspecialchars($user['email']) ?>&password=<?= htmlspecialchars($user['password']) ?>"
-                            class="btn btn-sm btn-outline-success me-2">
-                            <i class="fa-solid fa-screwdriver-wrench"></i>
-                        </a>
-                        <a href="delete_user.php?user_id=<?= htmlspecialchars($user['user_id']) ?>"
-                            class="btn btn-sm btn-outline-danger"
-                            onclick="return confirm('Bạn có chắc chắn muốn xóa người dùng này không?');">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    </td>
+            <?php
+            session_start();
+            include("../connect.php"); // Kết nối cơ sở dữ liệu
+            
+            // Lấy từ khóa tìm kiếm nếu có
+            $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
 
-                </tr>
+            // Tạo câu truy vấn cơ sở dữ liệu
+            $query = "SELECT user_id, name, email, password FROM users";
+            if (!empty($keyword)) {
+                // Nếu có từ khóa, thêm điều kiện tìm kiếm
+                $query .= " WHERE user_id LIKE ? OR name LIKE ? OR email LIKE ?";
+            }
 
-            <?php endforeach; ?>
+            $stmt = $conn->prepare($query);
+
+            if (!empty($keyword)) {
+                // Gắn từ khóa tìm kiếm vào câu truy vấn
+                $likeKeyword = '%' . $keyword . '%';
+                $stmt->bind_param("sss", $likeKeyword, $likeKeyword, $likeKeyword);
+            }
+
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result->num_rows > 0):
+                // Hiển thị kết quả tìm kiếm
+                $users = $result->fetch_all(MYSQLI_ASSOC);
+                foreach ($users as $index => $user):
+                    ?>
+                    <tr>
+                        <td><?= $index + 1 ?></td>
+                        <td><?= htmlspecialchars($user['user_id']) ?></td>
+                        <td><?= htmlspecialchars($user['name']) ?></td>
+                        <td><?= htmlspecialchars($user['email']) ?></td>
+                        <td><?= htmlspecialchars($user['password']) ?></td>
+                        <td>
+                            <a href="update_user.php?user_id=<?= htmlspecialchars($user['user_id']) ?>&name=<?= htmlspecialchars($user['name']) ?>&email=<?= htmlspecialchars($user['email']) ?>&password=<?= htmlspecialchars($user['password']) ?>"
+                                class="btn btn-sm btn-outline-success me-2">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                            </a>
+                            <a href="delete_user.php?user_id=<?= htmlspecialchars($user['user_id']) ?>"
+                                class="btn btn-sm btn-outline-danger"
+                                onclick="return confirm('Bạn có chắc chắn muốn xóa người dùng này không?');">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach;
+            else:
+                echo "<p>Không tìm thấy kết quả phù hợp.</p>";
+            endif;
+
+            $stmt->close();
+            $conn->close();
+            ?>
         </tbody>
-
     </table>
 
-    <!-- Modal Chỉnh sửa -->
-
-
-
-
-
-
-    <!-- Modal Thêm Người Dùng -->
-    <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addUserModalLabel">Thêm Người Dùng Mới</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="addUserForm">
-                        <div class="mb-3">
-                            <label for="addName" class="form-label">Tên</label>
-                            <input type="text" class="form-control" id="addName" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="addUserId" class="form-label">UserId</label>
-                            <input type="text" class="form-control" id="addUserId" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="addEmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="addEmail" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="addPassword" class="form-label">Mật Khẩu</label>
-                            <input type="password" class="form-control" id="addPassword" required>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                    <button type="button" class="btn btn-primary" id="saveUserButton">Lưu</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    </table>
 
     <!-- Modal Xác nhận Xóa -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -153,6 +140,75 @@
         </div>
     </div>
 
+    <div class="chat-button" id="chatButton">
+        💬
+    </div>
+
+    <!-- Chat Box -->
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            <h4>Chat</h4>
+            <button id="closeChat">✖️</button>
+        </div>
+        <div class="chat-body">
+            <p>Bạn mong muốn biết thêm về?</p>
+            <form id="chatForm">
+                <button type="button" data-issue="quyche">Quy chế - Quy định</button><br><br>
+                <button type="button" data-issue="ptdang">Công tác phát triển Đảng</button><br><br>
+                <button type="button" data-issue="cachthanhcong">Cách thành công ở đại học</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('closeChat').addEventListener('click', function () {
+            document.getElementById('chatBox').style.display = 'none';
+        });
+
+        document.getElementById('chatForm').addEventListener('click', function (event) {
+            if (event.target.tagName === 'BUTTON') {
+                const issue = event.target.getAttribute('data-issue');
+                displayResponse(issue);
+            }
+        });
+
+        function displayResponse(issue) {
+            const chatBody = document.querySelector('.chat-body');
+            let responseHTML = '';
+
+            if (issue === 'quyche') {
+                responseHTML = `
+                <div class="response">
+                    <p>Các câu hỏi thường gặp về Quy chế-Quy định:</p>
+                    <ul>
+                        <li><a href="SoTay Phenikaa/Hoạt động đào tạo tại trường đại học Phenikaa.php">Hoạt động đào tạo?</a></li>
+                        <li><a href="SoTay Phenikaa/Hoạt động công tác sinh viên.php">Hoạt động công tác sinh viên?</a></li>
+                    </ul>
+                </div>`;
+            } else if (issue === 'ptdang') {
+                responseHTML = `
+                <div class="response">
+                    <p>Các câu hỏi thường gặp về Công tác phát triển Đảng:</p>
+                    <ul>
+                        <li><a href="SoTay Phenikaa/Đoàn thanh niên trường.php">Đoàn thanh niên trường?</a></li>
+                        <li><a href="SoTay Phenikaa/Phong trào sinh viên 5 tốt.php">Sinh viên 5 tốt?</a></li>
+                    </ul>
+                </div>`;
+            } else if (issue === 'cachthanhcong') {
+                responseHTML = `
+                <div class="response">
+                    <p>Các câu hỏi thường gặp về cách thành công ở đại học:</p>
+                    <ul>
+                        <li><a href="SoTay Phenikaa/Kỹ năng tự học.php">Khả năng tự học</a></li>
+                        <li><a href="SoTay Phenikaa/Lập kế hoạch học tập cá nhân.php">Lập kế hoạch học tập</a></li>
+                    </ul>
+                </div>`;
+            }
+
+            chatBody.innerHTML += responseHTML;
+        }
+    </script>
+    <script src="../script.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
