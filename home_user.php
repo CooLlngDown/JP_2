@@ -57,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Phenikaa University</title>
     <!-- Link to external CSS -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styleChatbox.css">
 </head>
 
 <body>
